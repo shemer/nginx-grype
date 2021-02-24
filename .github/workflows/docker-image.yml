@@ -17,7 +17,7 @@ jobs:
       run: docker build . --file Dockerfile --tag ${{ secrets.DOCKER_USER  }}/nginx-grype
     - name: Run a grype vulnerability scan
       id: vulscan
-      run: curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin && grype -f high ${{ secrets.DOCKER_USER  }}/nginx-grype
+      run: curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sudo sh -s -- -b /usr/local/bin && grype -f high ${{ secrets.DOCKER_USER  }}/nginx-grype
     - name: Push the Docker image
       id: push
       run: docker push bharamicrosystems/jenkins-distroless
