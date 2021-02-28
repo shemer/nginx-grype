@@ -1,1 +1,1 @@
-# nginx-grype
+# nginx-grype v1
